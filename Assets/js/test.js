@@ -27,17 +27,17 @@
 //needs to be recorded to local storage
 //needs to be called when app loads
 
-var startBtn = document.querySelector('.start-button')
+var startBtn = document.querySelector('#start-button')
 //console.log(startBtn)
 startBtn.addEventListener("click", function (e) {
     e.preventDefault();
     //alert("working");
     var timerCount = 10;
-    var timerId = setInterval(function(){
+    var timerId = setInterval(function () {
         timerCount--;
-        if(timerCount === 0){
+        if (timerCount === 0) {
             ("game over");
             clearInterval(timerId);
         }
-    }
+    })
 })
