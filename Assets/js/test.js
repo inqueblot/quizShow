@@ -27,7 +27,17 @@
 //needs to be recorded to local storage
 //needs to be called when app loads
 
-var startBtn = document.querySelector('#start-button')
+var startBtn = document.querySelector('#start-button');
+var win = document.querySelector('#win');
+var lose = document.querySelector('#lose');
+var choiceA = document.querySelector('.choiceA');
+var choiceB = document.querySelector('.choiceB');
+var choiceC = document.querySelector('.choiceC');
+var choiceD = document.querySelector('.choiceD');
+//console.log(choiceA.className)
+
+
+
 //console.log(startBtn)
 startBtn.addEventListener("click", function (e) {
     e.preventDefault();
@@ -40,4 +50,10 @@ startBtn.addEventListener("click", function (e) {
             clearInterval(timerId);
         }
     })
+})
+
+//event listeners for choices, check if choice is correct
+choiceA.addEventListener("click", function () {
+    //alert("got it")
+
 })

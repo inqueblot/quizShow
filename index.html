@@ -5,28 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Assets/css/style.css" />
-    <title>Document</title>
+
+    <title>Quiz Time!</title>
 </head>
 
 <body>
-    <button id="start-button" ;>start</button>
-    <div class="card">
+    <header>
+        <div>Quiz Time!</div>
+        <button id="start-button">Start</button>
+    </header>
+
+    <main class="card">
+        <section>
+            <div class="container">
+                What color is the sky?
+            </div>
+            <button class="choiceA correct">
+                blue
+            </button>
+            <button class="choiceB wrong">
+                red
+            </button>
+            <button class="choiceC wrong">
+                green
+            </button>
+            <button class="choiceD wrong">
+                purple
+            </button>
+        </section>
+
         <div class="container">
-            What color is the sky?
+            <h2>SCORE</h2>
+            <div>wins: <span id="win">12</span></div>
+            <div>losses: <span id="lose"></span></div>
         </div>
-        <button id=choiceA>
-            blue
-        </button>
-        <button id=choiceB>
-            red
-        </button>
-        <button id=choiceC>
-            green
-        </button>
-        <button id=choiceD>
-            purple
-        </button>
-    </div>
+    </main>
+
+
+
     <script src="Assets/js/test.js"></script>
 </body>
 
