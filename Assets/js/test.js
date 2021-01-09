@@ -13,28 +13,37 @@ var loseCounter = 0
 console.log(typeof document.querySelector('#win'))
 
 var questionArr = document.querySelectorAll('section')
+console.log(questionArr)
 
 
 
-{
-    for (let index = 0; index < questionArr.length; index++) {
-        questionArr[index].classList.add("hidden");
-        questionArr[index].classList.remove("visible");
-
-    }
-    //     getWins();
-    //     getLosses();
+//these run on start
+//hides all questions
+for (let index = 0; index < questionArr.length; index++) {
+    questionArr[index].classList.add("hidden");
+    questionArr[index].classList.remove("visible");
 }
+
+//gets stored losses
+if (localStorage.getItem("losses") != null) {
+    loseCounter = localStorage.getItem("losses");
+    lose.textContent = loseCounter;
+}
+
+//get stored wins
+if (localStorage.getItem("wins") != null) {
+    winCounter = localStorage.getItem("wins");
+    win.textContent = winCounter;
+}
+
+
 
 
 startBtn.addEventListener("click", function () {
     timerCount = 10
     questionNum = 0
     startTimer();
-    for (let index = 0; index < questionArr.length; index++) {
-        questionArr[index].classList.add("hidden");
-        questionArr[index].classList.remove("visible");
-    }
+    hideAll();
     questionArr[0].classList.add("visible");
     questionArr[0].classList.remove("hidden");
 
@@ -49,7 +58,14 @@ function startTimer() {
         if (timerCount <= 0) {
             // Clears interval
             clearInterval(timerInterval);
-            gameOver()
+            hideAll();
+            questionArr[5].classList.remove("hidden");
+            questionArr[5].classList.remove("visible");
+            loseCounter++
+            lose.textContent = loseCounter;
+            localStorage.setItem("losses", loseCounter);
+
+
         }
         if (questionNum == 4) {
             clearInterval(timerInterval);
@@ -58,30 +74,21 @@ function startTimer() {
 
 };
 
-
+//creates an event listener for each correct button
 for (let i = 0; i < correctArr.length; i++) {
     correctArr[i].addEventListener("click", function () {
         nextQuestion();
     });
-    console.log(i)
-
-}
-
+};
+//creates an event listener for each wrong choice
 for (let i = 0; i < wrongArr.length; i++) {
     wrongArr[i].addEventListener("click", function () {
         timerCount--;
     });
-}
-// document.querySelector(".choice-correct").addEventListener("click", function () {
-//     nextQuestion();
-// });
-
-//document.querySelector(".choice-wrong").addEventListener("click", function () {
-// timerCount -= 10;
-// });
+};
 
 
-
+//runs through questions, when through all gives win
 function nextQuestion() {
     questionArr[questionNum].classList.add("hidden");
     questionArr[questionNum].classList.remove("visible");
@@ -99,4 +106,11 @@ function youWin() {
     win.textContent = winCounter;
     localStorage.setItem("wins", winCounter);
     clearInterval(timerInterval);
+};
+
+function hideAll() {
+    for (let index = 0; index < questionArr.length; index++) {
+        questionArr[index].classList.add("hidden");
+        questionArr[index].classList.remove("visible");
+    }
 };
