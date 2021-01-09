@@ -8,6 +8,8 @@ var timerCount = 10
 var questionNum = 0
 var timerInterval = 0
 var index = 0
+var winCounter = 0
+var loseCounter = 0
 console.log(typeof document.querySelector('#win'))
 
 var questionArr = document.querySelectorAll('section')
@@ -26,8 +28,16 @@ var questionArr = document.querySelectorAll('section')
 
 
 startBtn.addEventListener("click", function () {
+    timerCount = 10
+    questionNum = 0
     startTimer();
+    for (let index = 0; index < questionArr.length; index++) {
+        questionArr[index].classList.add("hidden");
+        questionArr[index].classList.remove("visible");
+    }
     questionArr[0].classList.add("visible");
+    questionArr[0].classList.remove("hidden");
+
 
 })
 
@@ -40,7 +50,9 @@ function startTimer() {
             // Clears interval
             clearInterval(timerInterval);
             gameOver()
-            return timerInterval;
+        }
+        if (questionNum == 4) {
+            clearInterval(timerInterval);
         }
     }, 1000);
 
@@ -83,5 +95,8 @@ function nextQuestion() {
 }
 
 function youWin() {
-    win = win + 1;
+    winCounter++
+    win.textContent = winCounter;
+    localStorage.setItem("wins", winCounter);
+    clearInterval(timerInterval);
 };
