@@ -10,6 +10,8 @@ var timerInterval = 0
 var index = 0
 var winCounter = 0
 var loseCounter = 0
+var userScores = [];
+var score = 10;
 console.log(typeof document.querySelector('#win'))
 
 var questionArr = document.querySelectorAll('section')
@@ -105,6 +107,7 @@ function youWin() {
     winCounter++
     win.textContent = winCounter;
     localStorage.setItem("wins", winCounter);
+    score = timerCount
     clearInterval(timerInterval);
 };
 
@@ -114,3 +117,19 @@ function hideAll() {
         questionArr[index].classList.remove("visible");
     }
 };
+
+function getScore() {
+    var scoreConfirm = confirm("Would you like to record your score"); ''
+    if (scoreConfirm === true) {
+        userName = prompt("enter your initials");
+        alert("your score was " + score + "!");
+        var scoreObj = {
+            user: userName,
+            score: score
+        };
+        userScores.push(scoreObj);
+        localStorage.setItem("scores", JSON.stringify(userScores));
+
+    }
+
+}
