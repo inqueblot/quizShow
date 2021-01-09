@@ -7,3 +7,11 @@ border-radius: 5px;
 width: 400px;
 height: 600px;
 }
+
+.hidden {
+  display:none; 
+}
+
+.visible {
+    display:block;
+}

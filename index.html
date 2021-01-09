@@ -15,29 +15,91 @@
         <button id="start-button">Start</button>
     </header>
 
-    <main class="card">
-        <section>
+    <main class="question">
+        <!-- question 1 -->
+        <section class="visible">
             <div class="container">
                 What color is the sky?
             </div>
-            <button class="choiceA correct">
+            <button class="choice-correct">
                 blue
             </button>
-            <button class="choiceB wrong">
+            <button class="choice-wrong">
                 red
             </button>
-            <button class="choiceC wrong">
+            <button class="choice-wrong">
                 green
             </button>
-            <button class="choiceD wrong">
+            <button class="choice-wrong">
                 purple
             </button>
         </section>
-
+        <!-- question 2 -->
+        <section class="visible">
+            <div class="container">
+                What color is the grass?
+            </div>
+            <button class="choice-wrong">
+                blue
+            </button>
+            <button class="choice-wrong">
+                red
+            </button>
+            <button class="choice-correct">
+                green
+            </button>
+            <button class="choice-wrong">
+                purple
+            </button>
+        </section>
+        <!-- question 3 -->
+        <section class="visible">
+            <div class="container">
+                What color is a plum?
+            </div>
+            <button class="choice-wrong">
+                blue
+            </button>
+            <button class="choice-wrong">
+                red
+            </button>
+            <button class="choice-wrong">
+                green
+            </button>
+            <button class="choice-correct">
+                purple
+            </button>
+        </section>
+        <!-- question 4 -->
+        <section class="visible">
+            <div class="container">
+                What color is a clown's nose?
+            </div>
+            <button class="choice-wrong">
+                blue
+            </button>
+            <button class="choice-correct">
+                red
+            </button>
+            <button class="choice-wrong">
+                green
+            </button>
+            <button class="choice-wrong">
+                purple
+            </button>
+        </section>
+        <!-- YOU WIN!! -->
+        <section class="visible">
+            <div>YOU WIN!</div>
+        </section>
         <div class="container">
             <h2>SCORE</h2>
-            <div>wins: <span id="win">12</span></div>
-            <div>losses: <span id="lose"></span></div>
+            <div>wins: <span id="win">0</span></div>
+            <div>losses: <span id="lose">0</span></div>
+        </div>
+        <div class=timerBox>
+            <div class="timer">10</div>
+            <div>Seconds left</div>
         </div>
     </main>
 
