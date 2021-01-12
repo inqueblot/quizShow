@@ -1,5 +1,8 @@
 * {
+  display: -ms-flexbox;
+  flex-direction: column;
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -9,12 +12,18 @@ padding-bottom: 60px;
 
 
 .question { 
+  flex: 0 auto;
 color:white;
 background-color: black;
 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 border-radius: 5px;
 width: 400px;
 height: 400px;
+margin: auto;
+}
+
+.container {
+  padding: 50px;
 }
 
 .hidden {
@@ -26,7 +35,9 @@ height: 400px;
 }
 
 .score {
-  background-color: rgba(255, 234, 206, 0.116);
+  margin:auto;
+  border: dashed 2px black;
+  background-color: cyan;
   width: 250px;
   height: 250px;
 }
